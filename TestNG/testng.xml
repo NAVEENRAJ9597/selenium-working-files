@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Web Automation Suite" parallel="classes" thread-count="3" verbose="1">
+
+    <!-- Integrating the Test Execution Listener -->
+    <listeners>
+        <listener class-name="org.example.listeners.TestExecutionListener"/>
+    </listeners>
+
+    <test name="Comprehensive Tests">
+        <!-- Passing a parameter down to the @BeforeMethod in base class -->
+        <parameter name="browser" value="chrome"/>
+        
+        <classes>
+            <class name="org.example.base.Base"/>
+            <class name="org.example.base.Base2"/>
+            <class name="org.example.listeners.TestExecutionListener"/>
+            <!-- Add the Factory class; TestNG will automatically pick up and execute the generated test instances -->
+        </classes>
+    </test>
+
+</suite>

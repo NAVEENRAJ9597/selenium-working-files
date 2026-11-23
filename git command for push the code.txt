@@ -1,0 +1,33 @@
+✅ Step 1: Open Your Project Folder
+Go to your project folder:
+
+cd your-project-folder
+
+✅ Step 2: Initialize Git
+
+git init
+
+✅ Step 3: Add Files
+
+git add .
+
+
+
+✅ Step 4: Connect to GitHub Repo
+Copy your repo URL from GitHub and run:
+
+git remote add origin https://github.com/your-username/your-repo-name.git
+
+✅ Step 5: Commit Files
+
+git commit -m "Initial commit"
+
+✅ Step 6: Push to GitHub
+
+git branch -M main
+
+git push -u origin main
+
+
+🎉 DONE!
+Now your project is live on GitHub ✅

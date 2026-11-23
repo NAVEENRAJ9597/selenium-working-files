@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body style="font-family: Arial; padding: 10px; background: #fafafa;">
+    <h3>Credit Card Details</h3>
+    <input type="text" id="cc-number" placeholder="Card Number" style="padding:8px; width:100%; box-sizing:border-box; margin-bottom:10px;">
+    <input type="text" id="cc-exp" placeholder="MM/YY" style="padding:8px; width:48%;">
+    <input type="text" id="cc-cvc" placeholder="CVC" style="padding:8px; width:48%;">
+    
+    <button id="validate-btn" style="padding:8px; background:#000; color:#fff; width:100%; margin-top:10px; border:none;">Validate Card</button>
+    <p id="payment-status" style="color:green; font-weight:bold;"></p>
+    
+    <script>
+        document.getElementById('validate-btn').addEventListener('click', () => {
+            document.getElementById('payment-status').textContent = "Card Validated!";
+        });
+    </script>
+</body>
+</html>

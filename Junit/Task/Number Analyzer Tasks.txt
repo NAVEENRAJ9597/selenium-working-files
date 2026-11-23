@@ -1,0 +1,26 @@
+
+Task 1: isEven
+
+Verify the method correctly identifies positive even numbers, positive odd numbers, and the edge case of zero.
+
+Verify the method correctly handles negative integers.
+
+
+Task 2: findMax
+
+Verify the method successfully identifies the maximum integer in a standard unsorted array.
+
+Verify the method correctly handles an array containing entirely negative integers.
+
+Assert that the function throws the correct exception when passed an empty array.
+
+Assert that the function throws the correct exception when passed a null reference.
+
+
+Task 3: calculateFactorial
+
+Verify the standard positive factorial calculations (e.g., 5! = 120).
+
+Verify the boundary conditions of factorial arithmetic (0! = 1 and 1! = 1).
+
+Assert that passing a negative integer triggers the appropriate exception.

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuminaStore - Home</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-color: #f8fafc;
+            --header-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+        }
+
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .search-bar {
+            display: flex;
+            width: 40%;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+
+        .search-bar button {
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .cart-container {
+            position: relative;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -12px;
+            background-color: #ef4444;
+            color: white;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 10px;
+        }
+
+        .logout-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            color: var(--text-main);
+        }
+
+        .logout-btn:hover {
+            background-color: var(--bg-color);
+        }
+
+        .hero {
+            background-color: var(--text-main);
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .main-content {
+            padding: 3rem 5%;
+        }
+
+        .section-title {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background-color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .add-to-cart-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--header-bg);
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="#" class="logo">LuminaStore</a>
+
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search products...">
+        <button id="searchBtn">Search</button>
+    </div>
+
+    <div class="nav-actions">
+        <span id="welcomeText" class="text-muted"></span>
+        <div class="cart-container" id="cartContainer">
+            Cart
+            <span class="cart-badge" id="cartCount">0</span>
+        </div>
+        <button class="logout-btn" id="logoutBtn">Logout</button>
+    </div>
+</header>
+
+<div class="hero">
+    <h1>New Arrivals Are Here</h1>
+    <p>Discover the latest trends in electronics and accessories.</p>
+</div>
+
+<main class="main-content">
+    <h2 class="section-title">Featured Products</h2>
+
+    <div class="product-grid">
+        <div class="product-card">
+            <div class="product-image">Image: Wireless Headphones</div>
+            <div class="product-info">
+                <div class="product-title" data-name="Wireless Noise-Cancelling Headphones">Wireless Noise-Cancelling Headphones</div>
+                <div class="product-price">$299.99</div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">Image: Smartwatch</div>
+            <div class="product-info">
+                <div class="product-title" data-name="Fitness Smartwatch Pro">Fitness Smartwatch Pro</div>
+                <div class="product-price">$199.50</div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">Image: Mechanical Keyboard</div>
+            <div class="product-info">
+                <div class="product-title" data-name="RGB Mechanical Keyboard">RGB Mechanical Keyboard</div>
+                <div class="product-price">$129.00</div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">Image: 4K Monitor</div>
+            <div class="product-info">
+                <div class="product-title" data-name="27-inch 4K UHD Monitor">27-inch 4K UHD Monitor</div>
+                <div class="product-price">$349.99</div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const user = localStorage.getItem('currentUser');
+        if (!user) {
+            window.location.href = 'login.html';
+        } else {
+            document.getElementById('welcomeText').textContent = `Hello, ${user.split('@')[0]}`;
+        }
+    });
+
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+        localStorage.removeItem('currentUser');
+        window.location.href = 'login.html';
+    });
+
+    let currentCartCount = 0;
+    const cartBadge = document.getElementById('cartCount');
+    const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            currentCartCount++;
+            cartBadge.textContent = currentCartCount;
+
+            const originalText = this.textContent;
+            this.textContent = 'Added!';
+            this.style.backgroundColor = 'var(--primary-color)';
+            this.style.color = 'white';
+
+            setTimeout(() => {
+                this.textContent = originalText;
+                this.style.backgroundColor = 'var(--header-bg)';
+                this.style.color = 'var(--primary-color)';
+            }, 1000);
+        });
+    });
+</script>
+</body>
+</html>
